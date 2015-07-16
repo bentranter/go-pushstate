@@ -19,8 +19,10 @@ type Page struct {
 	Title string
 }
 
-// homeHandler handles the home page
+// homeHandler handles the home page. It also get's called
+// twice, because your browser asks for `favicon.ico`
 func homeHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println(r.UserAgent() + "\n\n")
 	err := templates.ExecuteTemplate(w, "home.html", &Page{Title: "Test"})
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
