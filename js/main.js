@@ -92,8 +92,9 @@ var Stacker = {
    *
    * @param {String} the HTML from the response.
    */
-  changePage: function(html) {
+  changePage: function(html, url) {
     // @TODO: manage History API in here
+    window.history.pushState({}, '', document.location.href);
     document.getElementsByTagName('body')[0].innerHTML = html;
   }
 };
