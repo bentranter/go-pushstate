@@ -78,7 +78,7 @@ var Stacker = {
     };
 
     xhr.onloadend = function() {
-      Stacker.replace(xhr.response);
+      // Stacker.replace(xhr.response);
     };
     xhr.onerror = function() {
       // @TODO: Change this
